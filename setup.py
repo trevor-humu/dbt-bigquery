@@ -50,9 +50,9 @@ def _get_dbt_core_version():
 
 
 package_name = "dbt-bigquery"
-package_version = "1.4.0a1"
+package_version = "1.3.1"
 dbt_core_version = _get_dbt_core_version()
-description = """The BigQuery adapter plugin for dbt"""
+description = """The BigQuery adapter plugin for dbt. Released early to avoid a dependency conflict for Humu"""
 
 setup(
     name=package_name,
@@ -66,7 +66,7 @@ setup(
     packages=find_namespace_packages(include=["dbt", "dbt.*"]),
     include_package_data=True,
     install_requires=[
-        "dbt-core~={}".format(dbt_core_version),
+        "dbt-core>=1.3.0",
         "protobuf>=3.13.0,<4",
         "google-cloud-core>=1.3.0,<3",
         "google-cloud-bigquery>=1.25.0,<3.3.3",
